@@ -62,6 +62,7 @@ public class StartConfig implements CommandLineRunner {
 //            FFmpegExecUtils.getInstance().ffprobe = ffprobe;
             // 对目录进行预整理
             File[] appFiles = recordFile.listFiles();
+
             if (appFiles != null && appFiles.length > 0) {
                 for (File appFile : appFiles) {
                     File[] streamFiles = appFile.listFiles();
@@ -83,6 +84,8 @@ public class StartConfig implements CommandLineRunner {
                     }
 
                 }
+            } else {
+                logger.info("当前路径下文件个数为空");
             }
 
         } catch (Exception exception){
